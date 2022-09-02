@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// 스키마란? 하나하나 정보를 지정해주는 역할. 타입, 문자열길이 등
+// 모델은 스키마를 감싸주는 역할을 한다.
 const userSchema = mongoose.Schema({
   name: {
     type: String,
@@ -32,6 +34,6 @@ const userSchema = mongoose.Schema({
   },
 });
 
-const User = mongoose.deleteModel("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = { User };
