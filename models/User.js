@@ -37,6 +37,7 @@ const userSchema = mongoose.Schema({
   },
 });
 
+// #10 bcrypt로 비밀번호 암호화
 // .pre는 몽구스에서 가져온 메소드.
 // .save메서드를 호출하기 전에 두번째 파라미터의 함수를 실행하고
 // next를 함수안에서 호출하면 다음것(save메서드)이 실행된다.
@@ -58,6 +59,7 @@ userSchema.pre("save", function (next) {
   }
 });
 
+// #11 plain비밀번호(암호회 되기전 비밀번호)와 암호화된 비밀번호 비교
 userSchema.methods.comparePassword = function (plainPassword, cb) {
   bcrypt.compare(plainPassword, this.password, function (err, isMatch) {
     if (err) return cb(err);
