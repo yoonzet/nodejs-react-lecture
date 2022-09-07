@@ -18,6 +18,10 @@ mongoose
 
 app.get("/", (req, res) => res.send("Hello World!zzkkkkl"));
 
+app.get("/api/hello", (req, res) => {
+  res.send("hello~~!");
+});
+
 // #07 회원가입 기능
 // 회원가입할때 필요한 정보들을 클라이언트에서 가져오면 그것들을 데이터베이스에 넣어준다.
 app.post("/api/users/register", (req, res) => {
